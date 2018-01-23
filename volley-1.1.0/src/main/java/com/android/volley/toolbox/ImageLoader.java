@@ -118,7 +118,7 @@ public class ImageLoader {
      * @param errorImageResId Error image resource ID to use, or 0 if it doesn't exist.
      */
     public static ImageListener getImageListener(final ImageView view,
-                                                 final int defaultImageResId, final int errorImageResId) {
+            final int defaultImageResId, final int errorImageResId) {
         return new ImageListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -210,7 +210,7 @@ public class ImageLoader {
      * {@code Scaletype == ScaleType.CENTER_INSIDE}.
      */
     public ImageContainer get(String requestUrl, ImageListener imageListener,
-                              int maxWidth, int maxHeight) {
+            int maxWidth, int maxHeight) {
         return get(requestUrl, imageListener, maxWidth, maxHeight, ScaleType.CENTER_INSIDE);
     }
 
@@ -228,7 +228,7 @@ public class ImageLoader {
      *     the currently available image (default if remote is not loaded).
      */
     public ImageContainer get(String requestUrl, ImageListener imageListener,
-                              int maxWidth, int maxHeight, ScaleType scaleType) {
+            int maxWidth, int maxHeight, ScaleType scaleType) {
 
         // only fulfill requests that were initiated from the main thread.
         throwIfNotOnMainThread();
@@ -274,7 +274,7 @@ public class ImageLoader {
     }
 
     protected Request<Bitmap> makeImageRequest(String requestUrl, int maxWidth, int maxHeight,
-                                               ScaleType scaleType, final String cacheKey) {
+            ScaleType scaleType, final String cacheKey) {
         return new ImageRequest(requestUrl, new Listener<Bitmap>() {
             @Override
             public void onResponse(Bitmap response) {
@@ -361,7 +361,7 @@ public class ImageLoader {
          * @param cacheKey The cache key that identifies the requested URL for this container.
          */
         public ImageContainer(Bitmap bitmap, String requestUrl,
-                              String cacheKey, ImageListener listener) {
+                String cacheKey, ImageListener listener) {
             mBitmap = bitmap;
             mRequestUrl = requestUrl;
             mCacheKey = cacheKey;
